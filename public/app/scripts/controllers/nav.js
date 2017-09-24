@@ -20,4 +20,10 @@ angular.module('publicApp')
     $scope.logout = function(){
     	userManager.logout()
     }
+    $scope.curOrg = ""
+    $scope.changeOrg = function(org){
+        userManager.changeOrg(org)
+        console.log(org);
+    }
+
   });

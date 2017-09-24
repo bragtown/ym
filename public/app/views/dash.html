@@ -1,1 +1,45 @@
-<p>This is the dash view.</p>
+<button class = "btn" ng-click = "openYouthForm = !openYouthForm">Add Youth</button>
+<button class = "btn" ng-click = "takeAttendance()">Take Attendance</button>
+<button class = "btn" ng-click = "doRev()">Start Review</button>
+
+<form ng-hide = "openYouthForm == false">
+	<label>First Name</label>
+	<input class = "form-control" type = "text" ng-model = "newYouth.fName"/>
+	<label>Last Name</label>
+	<input class = "form-control" type = "text" ng-model = "newYouth.lName"/>
+	<label>Birthdate</label>
+	<input class = "form-control" type = "date" ng-model = "newYouth.birthday"/>
+	<button class = "btn" ng-click = "addYouth()">Submit</button>
+</form>
+
+<table class = "table" ng-show = "openYouthForm == false">
+	<thead>
+		<tr>
+			<th></th>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Birthday</th>
+			<th>Attendance Previous Quarter</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat = "y in data.youth">
+			<th ng-click = "selectYouth(y)" class = "clickable">Select</th>
+			<td>{{y.fName}}</td>
+			<td>{{y.lName}}</td>
+			<td ng-class = "isBirthMonth(y.birthday)">{{toDate(y.birthday)}}</td>
+			<td>{{prevQuarter(y)}}</td>
+			<td ng-show = "takeAtt == true">
+				<input type="checkbox" ng-model = "y.newAttendance.present">
+				<input type="date" ng-model = "y.newAttendance.date" name="">
+				<input type="text" ng-model = "y.newAttendance.note" name="">
+			</td>
+		</tr>
+		<tr>
+			<td colspan = "4"></td>
+			<td>{{prevQuarterTot()}}</td>
+		</tr>
+	</tbody>
+</table>
+
+<button class = "btn btn-primary" ng-show = "takeAtt == true" ng-click = "submitAttendance()">Submit Attendance</button>

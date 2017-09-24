@@ -1,0 +1,13 @@
+
+<button class = "btn" ng-click = "showNewEvent = !showNewEvent">New Event</button>
+<div class = "well" ng-show = "showNewEvent">
+	<label>Date</label>
+	<input class = "form-control" type="date" ng-model="newEvent.date"/>
+	<label>Information</label>
+	<textarea class = "form-control" ng-model="newEvent.data"></textarea>
+	<button class = "btn" ng-click = "addEvent()">Add Event</button>
+</div>
+
+<ul class = "list-group">
+	<li class = "list-group-item" ng-repeat = "event in user.events">{{toDate(event.date)}} - {{event.data}}<span class = "moveright clickable red glyphicon glyphicon-remove" ng-click = "deleteEvent(event)"></span></li>
+</ul>

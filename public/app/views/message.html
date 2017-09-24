@@ -1,0 +1,12 @@
+<label>To</label>
+    <select class = "form-control" multiple name="repeatSelect" id="repeatSelect" ng-model="to.yEmails">
+      <option ng-repeat="y in data.youth" ng-value="y.email">{{y.fName}} {{y.lName}}</option>
+    </select>
+    <select class = "form-control" multiple name="repeatSelect" id="repeatSelect" ng-model="to.yTexts">
+      <option ng-repeat="y in data.youth" ng-value="y.email">{{y.fName}} {{y.lName}}</option>
+    </select>
+    <div>model = {{to | json}}</div>
+<label>Subject</label>
+<input type="text" class = "form-control" name="">
+<label>Message</label>
+<textarea type="memo" class = "form-control" name=""></textarea>

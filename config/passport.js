@@ -29,11 +29,15 @@ module.exports = function(passport){
     				if(err)
     					return done(err);
     				//if no user is found
-    				if(!user)
-    					return done(null, false, req.flash('loginMessage', 'no user found'));
+    				if(!user){
+    					req.send('loginMessage', 'no user found')
+    					return done(null, false);
+    				}
 					//if invalid password
-					if(!user.validPassword(password))
-						return done(null, false, req.flash('loginMessage', 'Wrong Password!'));
+					if(!user.validPassword(password)){
+						res.send({loginMessage: 'Wrong Password!'})
+						return done(null, false);
+					}
 
 					return done(null,user);	
     			});

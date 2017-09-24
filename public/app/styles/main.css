@@ -8,7 +8,15 @@
 body {
   padding: 0;
 }
-
+.clickable{
+  cursor: pointer;
+}
+.moveright{
+  float:right;
+}
+.makered{
+  color: red;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
 .header,
 .marketing,

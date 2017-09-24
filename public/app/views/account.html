@@ -1,0 +1,33 @@
+<div class = "well">
+<h3 class = "">My Account</h3>
+<label>Email</label>
+<input type="email" class = "form-control" name="" ng-model = "user.email">
+
+<label>New Password</label>
+<input type="password" class = "form-control" name="" ng-model = "user.password">
+
+<label>Confirm New Password</label>
+<input type="password" class = "form-control" name="" ng-model = "user.confPass">
+
+<label>First Name</label>
+<input type="text" class = "form-control" name="" ng-model = "user.fName">
+
+<label>Last Name</label>
+<input type="" class = "form-control" name="" ng-model = "user.lName">
+
+<button class = "btn" ng-click = "submit()">Submit Changes</button>
+
+</div>
+<div class = "well">
+	<h3 class = "">Create an Organization</h3>
+	<label>New Organization Name</label>
+	<input type="text" class = "form-control" name="" ng-model = "newOrgName">
+	<button class = "btn" ng-click = "submitOrg()">Create</button>
+	<br>
+</div>
+<div class = "well">
+	<h3 class = "">My Organization</h3>
+	<label>Share Organization</label>
+	<input type = "email" ng-model = "shareEmail" class = "form-control" />
+	<button class = "btn" ng-click = "share()">Share</button>
+</div>

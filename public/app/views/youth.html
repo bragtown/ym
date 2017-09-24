@@ -1,0 +1,84 @@
+
+<table class = "table">
+	<tbody>
+		<tr class = "info">
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Birthday</th>
+		</tr>
+		<tr>
+			<td>{{y.fName}}</td>
+			<td>{{y.lName}}</td>
+			<td><input type = "date" ng-model = "y.birthday" class = "form-control"></td>
+		</tr>
+		<tr class = "info">
+			<th>Email</th>
+			<th>Phone #</th>
+			<th>Carrier</th>
+		</tr>
+		<tr>
+			<td><input type="email" ng-model = "y.email" class ="form-control"></td>
+			
+			<td><input type="phone" ng-model = "y.phone" class ="form-control"></td>
+			
+			<td><input type="text" ng-model = "y.carrier" class ="form-control"></td>
+		</tr>
+		<tr class = "info">
+			<th>Mother Email</th>
+			<th>Mother Phone #</th>
+			<th>Mother Carrier</th>
+		</tr>
+		<tr>
+			<td><input type="email" ng-model = "y.parentOneEmail" class ="form-control"></td>
+			
+			<td><input type="phone" ng-model = "y.parentOnePhone" class ="form-control"></td>
+			
+			<td><input type="text" ng-model = "y.parentOneCarrier" class ="form-control"></td>
+		</tr>
+		<tr class = "info">
+			<th>Father Email</th>
+			<th>Father Phone #</th>
+			<th>Father Carrier</th>
+		</tr>
+		<tr>
+			<td><input type="email" ng-model = "y.parentTwoEmail" class ="form-control"></td>
+			
+			<td><input type="phone" ng-model = "y.parentOneCarrier" class ="form-control"></td>
+			
+			<td><input type="text" ng-model = "y.parentTwoCarrier" class ="form-control"></td>
+		</tr>
+
+		<tr class = "info">
+			<th colspan="3">Previous Assignments</th>
+		</tr>
+		<tr>
+			<td colspan="3">
+				{{y.assignments[0].text}}
+				<input type="checkbox" ng-model = "y.assignments[0].completed" name="">
+			</td>
+		</tr>
+		<tr class = "info">
+			<th colspan="3">New AssignmentAssignment</th>
+		</tr>
+		<tr>
+			<td colspan="3"><input height="10em" class = "form-control" type="memo" ng-model = "y.newAssignment.text" name=""></td>
+		</tr>
+		<tr class = "info">
+			<th colspan="3">Notes</th>
+		</tr>
+		<tr>
+			<td colspan="3"><input height = "10em" class = "form-control" type="memo" ng-model = "y.notes" name=""></td>
+		</tr>
+
+
+	</tbody>
+</table>
+<button class = "btn" ng-click = "submit()">Submit</button>
+<button class = "btn btn-danger" ng-click = "deleteRec()">Delete Record</button>
+
+<div>
+	<h3 class = "bg-info">Attendance</h3>
+	<ul class = "list-group">
+		<li class = "list-group-item " ng-repeat = "v in y.attendance | filter:attFilter(v.date)" ng-class = "isSunday(v.date)">{{dispDate(v.date)}}</li>
+	</ul>
+</div>

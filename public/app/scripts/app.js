@@ -21,7 +21,7 @@ angular
   .config(function ($stateProvider, $urlRouterProvider) {
 
     
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/home/about');
     $stateProvider
       .state('home', {
         url: '/home',
@@ -44,6 +44,24 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
+      .state('home.announcements',{
+        url:'/announcements',
+        templateUrl:'views/announcements.html',
+        controller:'AnnoucementsCtrl',
+        controllerAs:'announcements'
+      })
+      .state('home.schedule',{
+        url:'/schedule',
+        templateUrl:'views/schedule.html',
+        controller:'ScheduleCtrl',
+        controllerAs:'schedule'
+      })
+      .state('home.account', {
+        url: '/account',
+        templateUrl: 'views/account.html',
+        controller: 'AccountCtrl',
+        controllerAs: 'account'
+      })
       .state('home.login', {
         url: '/login',
         templateUrl: 'views/login.html',
@@ -55,5 +73,17 @@ angular
         templateUrl: 'views/dash.html',
         controller: 'DashCtrl',
         controllerAs: 'dash'
+      })
+      .state('home.youth', {
+        url: '/youth',
+        templateUrl: 'views/youth.html',
+        controller: 'YouthCtrl',
+        controllerAs: 'youth'
+      })
+      .state('home.message', {
+        url: '/message',
+        templateUrl: 'views/message.html',
+        controller: 'MessageCtrl',
+        controllerAs: 'message'
       })
   });
